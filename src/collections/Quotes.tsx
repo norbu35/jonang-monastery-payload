@@ -1,0 +1,89 @@
+import { CollectionConfig } from "payload/types";
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML,
+} from "@payloadcms/richtext-lexical";
+
+const Quotes: CollectionConfig = {
+  slug: "quotes",
+  access: {
+    create: ({ req: { user } }) => {
+      if (user) {
+        return true;
+      }
+    },
+    read: () => true,
+    update: ({ req: { user } }) => {
+      if (user) {
+        return true;
+      }
+    },
+    delete: ({ req: { user } }) => {
+      if (user) {
+        return true;
+      }
+    },
+  },
+  fields: [
+    {
+      name: "quote",
+      type: "richText",
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({}),
+        ],
+      }),
+    },
+    lexicalHTML("quote", { name: "quoteHtml" }),
+    {
+      name: "addSourceLanguage",
+      type: "checkbox",
+      label: "Quote in source language",
+      admin: {
+        description:
+          "Check this box to enable adding the quote in its source language.",
+      },
+    },
+    {
+      name: "originalQuote",
+      type: "richText",
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({}),
+        ],
+      }),
+      admin: {
+        condition: (data) => data.addSourceLanguage,
+      },
+    },
+    lexicalHTML("originalQuote", { name: "originalQuoteHtml" }),
+    {
+      name: "originalQuoteLang",
+      type: "text",
+      label: "Original quote language",
+      required: true,
+      admin: {
+        condition: (data) => data.addSourceLanguage,
+        description: () => (
+          <div>
+            A{" "}
+            <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">
+              two-letter language code
+            </a>{" "}
+            denoting the language of the source quote.{" "}
+            <i>Examples: English: en, Tibetan: bo, Pali: pi</i>
+          </div>
+        ),
+      },
+    },
+    {
+      name: "source",
+      type: "text",
+    },
+  ],
+};
+
+export default Quotes;

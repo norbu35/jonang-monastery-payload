@@ -11,10 +11,12 @@ export interface Config {
     users: User;
     pages: Page;
     quotes: Quote;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
-  globals: {};
+  globals: {
+    header: Header;
+  };
 }
 export interface User {
   id: string;
@@ -31,17 +33,63 @@ export interface User {
 }
 export interface Page {
   id: string;
-  slug?: string | null;
-  title?: string | null;
-  content?: string | null;
+  slug: string;
+  title: string;
+  content: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  contentHtml?: string | null;
   updatedAt: string;
   createdAt: string;
 }
 export interface Quote {
   id: string;
-  quote?: string | null;
+  quote?: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  quoteHtml?: string | null;
   addSourceLanguage?: boolean | null;
-  originalQuote?: string | null;
+  originalQuote?: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  originalQuoteHtml?: string | null;
+  originalQuoteLang?: string | null;
   source?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -49,14 +97,14 @@ export interface Quote {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: string | User;
   };
   key?: string | null;
   value?:
     | {
-      [k: string]: unknown;
-    }
+        [k: string]: unknown;
+      }
     | unknown[]
     | string
     | number
@@ -72,8 +120,17 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
-
-declare module "payload" {
-  export interface GeneratedTypes extends Config {}
+export interface Header {
+  id: string;
+  navigation: {
+    page: string | Page;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 
+
+declare module 'payload' {
+  export interface GeneratedTypes extends Config {}
+}
