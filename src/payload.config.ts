@@ -1,17 +1,21 @@
 import path from "path";
 
-import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { viteBundler } from "@payloadcms/bundler-vite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
+import seoPlugin from "@payloadcms/plugin-seo";
 
 import Users from "./collections/Users";
 import Pages from "./collections/Pages";
 import Quotes from "./collections/Quotes";
 import Cards from "./collections/Cards";
 import Media from "./collections/Media";
+import Portraits from "./collections/Portraits";
 import Header from "./globals/Header";
+import PageTitle from "./globals/PageTitle";
+import IntroText from "./globals/IntroText";
+import Eminence from "./globals/Eminence";
 
 export default buildConfig({
   admin: {
@@ -19,8 +23,8 @@ export default buildConfig({
     bundler: viteBundler(),
   },
   editor: lexicalEditor({}),
-  globals: [Header],
-  collections: [Users, Pages, Quotes, Cards, Media],
+  globals: [Header, PageTitle, IntroText, Eminence],
+  collections: [Users, Media, Portraits, Pages, Cards, Quotes],
   serverURL: process.env.NODE_ENV === "production"
     ? process.env.PAYLOAD_PUBLIC_SERVER_URL
     : "http://localhost:3000",
@@ -30,7 +34,15 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI,
   }),
-  plugins: [payloadCloud()],
+  plugins: [seoPlugin({
+    tabbedUI: true,
+    collections: ["pages"],
+    uploadsCollection: "media",
+    generateTitle: ({ doc }) => `Jonang Monastery | ${doc?.title?.value}`,
+    generateDescription: ({ doc }) => doc?.excerpt?.value,
+    generateURL: ({ doc }) =>
+      `https://jonang.in/${collection?.slug}/${doc?.slug?.value}`,
+  })],
   rateLimit: {
     max: 100,
     trustProxy: true,

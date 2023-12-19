@@ -13,11 +13,25 @@ const Card: CollectionConfig = {
       name: "header",
       type: "text",
       required: true,
+      maxLength: 50,
+      admin: {
+        description: ({ _, value }) =>
+          `${
+            typeof value === "string" ? 50 - value.length : "50"
+          } characters left.`,
+      },
     },
     {
       name: "body",
       type: "text",
       required: true,
+      maxLength: 120,
+      admin: {
+        description: ({ _, value }) =>
+          `${
+            typeof value === "string" ? 120 - value.length : "120"
+          } characters left.`,
+      },
     },
     {
       name: "image",
