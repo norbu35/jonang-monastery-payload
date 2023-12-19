@@ -8,17 +8,7 @@ import { CollectionConfig } from "payload/types";
 const Pages: CollectionConfig = {
   slug: "pages",
   access: {
-    create: ({ req: { user } }) => {
-      if (user) {
-        return true;
-      }
-    },
     read: () => true,
-    update: ({ req: { user } }) => {
-      if (user) {
-        return true;
-      }
-    },
     delete: () => false,
   },
   admin: {

@@ -11,6 +11,8 @@ export interface Config {
     users: User;
     pages: Page;
     quotes: Quote;
+    cards: Card;
+    media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -93,6 +95,53 @@ export interface Quote {
   source?: string | null;
   updatedAt: string;
   createdAt: string;
+}
+export interface Card {
+  id: string;
+  header: string;
+  body: string;
+  image: string | Media;
+  link: string | Page;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Media {
+  id: string;
+  alt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    tablet?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 export interface PayloadPreference {
   id: string;

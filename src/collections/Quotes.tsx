@@ -8,22 +8,7 @@ import {
 const Quotes: CollectionConfig = {
   slug: "quotes",
   access: {
-    create: ({ req: { user } }) => {
-      if (user) {
-        return true;
-      }
-    },
     read: () => true,
-    update: ({ req: { user } }) => {
-      if (user) {
-        return true;
-      }
-    },
-    delete: ({ req: { user } }) => {
-      if (user) {
-        return true;
-      }
-    },
   },
   fields: [
     {
@@ -70,7 +55,10 @@ const Quotes: CollectionConfig = {
         description: () => (
           <div>
             A{" "}
-            <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">
+            <a
+              href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes"
+              target="_blank"
+            >
               two-letter language code
             </a>{" "}
             denoting the language of the source quote.{" "}
