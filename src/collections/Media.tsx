@@ -40,7 +40,7 @@ const Media: CollectionConfig = {
       type: "text",
       admin: {
         description:
-          "A text describing the image, for screen readers and in cases when the image can't be rendered.",
+          "A text describing the image, for screen readers and in cases where the image can't be rendered.",
       },
     },
   ],

@@ -12,6 +12,8 @@ import Quotes from "./collections/Quotes";
 import Cards from "./collections/Cards";
 import Media from "./collections/Media";
 import Portraits from "./collections/Portraits";
+import Teachers from "./collections/Teachers";
+import News from "./collections/News";
 import Header from "./globals/Header";
 import PageTitle from "./globals/PageTitle";
 import IntroText from "./globals/IntroText";
@@ -24,7 +26,7 @@ export default buildConfig({
   },
   editor: lexicalEditor({}),
   globals: [Header, PageTitle, IntroText, Eminence],
-  collections: [Users, Media, Portraits, Pages, Cards, Quotes],
+  collections: [Users, Media, Portraits, Pages, News, Cards, Teachers, Quotes],
   serverURL: process.env.NODE_ENV === "production"
     ? process.env.PAYLOAD_PUBLIC_SERVER_URL
     : "http://localhost:3000",
@@ -44,7 +46,7 @@ export default buildConfig({
       `https://jonang.in/${collection?.slug}/${doc?.slug?.value}`,
   })],
   rateLimit: {
-    max: 100,
+    max: 200,
     trustProxy: true,
   },
   cors: process.env.NODE_ENV === " production" ? ["https://jonang.in"] : [
