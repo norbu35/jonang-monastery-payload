@@ -38,9 +38,9 @@ const Portraits: CollectionConfig = {
     {
       name: "alt",
       type: "text",
+      required: true,
       admin: {
-        description:
-          "A text describing the image, for screen readers and in cases where the image can't be rendered.",
+        description: "The name of the person, along with any titles.",
       },
     },
   ],

@@ -1,4 +1,9 @@
 import { CollectionConfig } from "payload/types";
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML,
+} from "@payloadcms/richtext-lexical";
 
 const Teachers: CollectionConfig = {
   slug: "teachers",
@@ -24,8 +29,26 @@ const Teachers: CollectionConfig = {
     {
       name: "portrait",
       type: "upload",
+      required: true,
       relationTo: "portraits",
     },
+    {
+      name: "shortBio",
+      type: "textarea",
+      required: true,
+    },
+    {
+      name: "fullBio",
+      type: "richText",
+      required: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({}),
+        ],
+      }),
+    },
+    lexicalHTML("fullBio", { name: "fullBioHtml" }),
   ],
 };
 

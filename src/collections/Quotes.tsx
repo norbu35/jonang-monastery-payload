@@ -10,7 +10,17 @@ const Quotes: CollectionConfig = {
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: "title",
+  },
   fields: [
+    {
+      name: "title",
+      type: "text",
+      admin: {
+        description: "A short label to show as the name of the quote.",
+      },
+    },
     {
       name: "quote",
       type: "richText",

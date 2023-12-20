@@ -9,15 +9,22 @@
 export interface Config {
   collections: {
     users: User;
-    pages: Page;
-    quotes: Quote;
-    cards: Card;
     media: Media;
+    portraits: Portrait;
+    pages: Page;
+    news: News;
+    cards: Card;
+    teachers: Teacher;
+    donations: Donation;
+    quotes: Quote;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
   globals: {
     header: Header;
+    pageTitle: PageTitle;
+    introText: IntroText;
+    prominence: Prominence;
   };
 }
 export interface User {
@@ -32,6 +39,82 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+export interface Media {
+  id: string;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    tablet?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+export interface Portrait {
+  id: string;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    tablet?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 export interface Page {
   id: string;
@@ -53,6 +136,82 @@ export interface Page {
     [k: string]: unknown;
   };
   contentHtml?: string | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    image?: string | Media | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+export interface News {
+  id: string;
+  headline: string;
+  body: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  image: string | Media;
+  bodyHtml?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Card {
+  id: string;
+  header: string;
+  body: string;
+  image: string | Media;
+  link: string | Page;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Teacher {
+  id: string;
+  name: string;
+  roles?:
+    | {
+        role?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  portrait: string | Portrait;
+  shortBio: string;
+  fullBio: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  fullBioHtml?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Donation {
+  id: string;
+  headline: string;
+  description: string;
+  image: string | Media;
+  goal: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -96,53 +255,6 @@ export interface Quote {
   updatedAt: string;
   createdAt: string;
 }
-export interface Card {
-  id: string;
-  header: string;
-  body: string;
-  image: string | Media;
-  link: string | Page;
-  updatedAt: string;
-  createdAt: string;
-}
-export interface Media {
-  id: string;
-  alt?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  sizes?: {
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    card?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    tablet?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
-}
 export interface PayloadPreference {
   id: string;
   user: {
@@ -175,6 +287,29 @@ export interface Header {
     page: string | Page;
     id?: string | null;
   }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+export interface PageTitle {
+  id: string;
+  title: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+export interface IntroText {
+  id: string;
+  body: string;
+  buttonLink: string | Page;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+export interface Prominence {
+  id: string;
+  photo: string | Portrait;
+  photoCaption: string;
+  mainText: string;
+  isQuote?: boolean | null;
+  quoteSource?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

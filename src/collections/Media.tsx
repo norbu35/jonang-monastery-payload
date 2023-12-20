@@ -38,9 +38,10 @@ const Media: CollectionConfig = {
     {
       name: "alt",
       type: "text",
+      required: true,
       admin: {
         description:
-          "A text describing the image, for screen readers and in cases where the image can't be rendered.",
+          "A text describing the image, for screen readers and in cases where the image can't be rendered. Also used as a descriptor for images on the CMS.",
       },
     },
   ],
