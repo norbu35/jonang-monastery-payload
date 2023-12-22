@@ -13,6 +13,12 @@ const PageTitle: GlobalConfig = {
     type: "text",
     required: true,
     maxLength: 60,
+    admin: {
+      description: ({ _, value }) =>
+        `${
+          typeof value === "string" ? 60 - value.length : "60"
+        } characters left.`,
+    },
   }],
 };
 

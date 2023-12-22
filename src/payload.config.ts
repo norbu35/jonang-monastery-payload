@@ -15,26 +15,33 @@ import Portraits from "./collections/Portraits";
 import Teachers from "./collections/Teachers";
 import News from "./collections/News";
 import Donations from "./collections/Donations";
+import Newsletters from "./collections/Newsletters";
 import Header from "./globals/Header";
 import PageTitle from "./globals/PageTitle";
 import IntroText from "./globals/IntroText";
 import Eminence from "./globals/Eminence";
+import Activities from "./globals/Activities";
 
 export default buildConfig({
   admin: {
     user: Users.slug,
     bundler: viteBundler(),
+    livePreview: {
+      url: "http://localhost:3000",
+      collections: ["newsleters", "pages"],
+    },
   },
   editor: lexicalEditor({}),
-  globals: [Header, PageTitle, IntroText, Eminence],
+  globals: [Header, PageTitle, IntroText, Eminence, Activities],
   collections: [
     Users,
     Media,
     Portraits,
     Pages,
+    Newsletters,
     News,
-    Cards,
     Teachers,
+    Cards,
     Donations,
     Quotes,
   ],

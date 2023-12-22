@@ -217,6 +217,7 @@ export interface Donation {
 }
 export interface Quote {
   id: string;
+  title?: string | null;
   quote?: {
     root: {
       children: {

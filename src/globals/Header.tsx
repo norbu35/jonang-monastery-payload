@@ -4,7 +4,6 @@ const Header: GlobalConfig = {
   slug: "header",
   access: {
     read: () => true,
-    update: () => true,
   },
   admin: {
     description:

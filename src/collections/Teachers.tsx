@@ -10,6 +10,9 @@ const Teachers: CollectionConfig = {
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: "name",
+  },
   fields: [
     {
       name: "name",
@@ -19,6 +22,10 @@ const Teachers: CollectionConfig = {
     {
       name: "roles",
       type: "array",
+      required: true,
+      admin: {
+        description: "Role of the teacher at the monastery.",
+      },
       fields: [
         {
           name: "role",

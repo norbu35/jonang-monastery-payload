@@ -47,6 +47,7 @@ const Eminence: GlobalConfig = {
     {
       name: "quoteSource",
       type: "text",
+      required: true,
       admin: {
         condition: (data) => data.isQuote,
         description: "A citation which will appear under the quote.",

@@ -17,6 +17,7 @@ const Quotes: CollectionConfig = {
     {
       name: "title",
       type: "text",
+      required: true,
       admin: {
         description: "A short label to show as the name of the quote.",
       },
@@ -24,6 +25,7 @@ const Quotes: CollectionConfig = {
     {
       name: "quote",
       type: "richText",
+      required: true,
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
           ...defaultFeatures,
