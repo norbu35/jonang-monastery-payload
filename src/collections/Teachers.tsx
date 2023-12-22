@@ -40,12 +40,7 @@ const Teachers: CollectionConfig = {
       relationTo: "portraits",
     },
     {
-      name: "shortBio",
-      type: "textarea",
-      required: true,
-    },
-    {
-      name: "fullBio",
+      name: "bio",
       type: "richText",
       required: true,
       editor: lexicalEditor({
@@ -55,7 +50,7 @@ const Teachers: CollectionConfig = {
         ],
       }),
     },
-    lexicalHTML("fullBio", { name: "fullBioHtml" }),
+    lexicalHTML("bio", { name: "bioHtml" }),
   ],
 };
 

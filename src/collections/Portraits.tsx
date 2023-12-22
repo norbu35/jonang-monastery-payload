@@ -40,7 +40,8 @@ const Portraits: CollectionConfig = {
       type: "text",
       required: true,
       admin: {
-        description: "The name of the person, along with any titles.",
+        description:
+          "The name of the person, to be used as a label for the image.",
       },
     },
   ],
