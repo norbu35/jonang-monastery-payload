@@ -22,6 +22,7 @@ import PageTitle from "./globals/PageTitle";
 import IntroText from "./globals/IntroText";
 import Eminence from "./globals/Eminence";
 import Activities from "./globals/Activities";
+import Footer from "./globals/Footer";
 
 export default buildConfig({
   admin: {
@@ -33,7 +34,7 @@ export default buildConfig({
     },
   },
   editor: lexicalEditor({}),
-  globals: [Header, PageTitle, IntroText, Eminence, Activities],
+  globals: [Header, PageTitle, IntroText, Eminence, Activities, Footer],
   collections: [
     Users,
     Media,

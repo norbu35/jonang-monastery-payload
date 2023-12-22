@@ -27,6 +27,7 @@ export interface Config {
     introText: IntroText;
     prominence: Prominence;
     activities: Activity;
+    footer: Footer;
   };
 }
 export interface User {
@@ -309,6 +310,7 @@ export interface Header {
     page: string | Page;
     id?: string | null;
   }[];
+  logo: string | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -354,6 +356,30 @@ export interface Activity {
   } | null;
   image: string | Media;
   descriptionHtml?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+export interface Footer {
+  id: string;
+  address?: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  email?: string | null;
+  phone?: string | null;
+  blessing?: string | null;
+  addressHtml?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
