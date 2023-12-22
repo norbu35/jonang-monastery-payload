@@ -34,6 +34,15 @@ const Teachers: CollectionConfig = {
       ],
     },
     {
+      name: "orderOfAppearance",
+      type: "number",
+      required: true,
+      admin: {
+        description:
+          "The order in which the teachers appear, lower number comes first.",
+      },
+    },
+    {
       name: "portrait",
       type: "upload",
       required: true,
