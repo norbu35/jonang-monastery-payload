@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Users = {
+    slug: "users",
+    auth: {
+        maxLoginAttempts: 5,
+        lockTime: 5 * 60 * 1000, //milliseconds
+    },
+    admin: {
+        useAsTitle: "email",
+    },
+    fields: [
+    // Email added by default
+    // Add more fields as needed
+    ],
+};
+exports.default = Users;

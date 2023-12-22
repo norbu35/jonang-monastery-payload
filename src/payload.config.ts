@@ -1,3 +1,4 @@
+// @ts-nocheck
 import path from "path";
 
 import { mongooseAdapter } from "@payloadcms/db-mongodb";

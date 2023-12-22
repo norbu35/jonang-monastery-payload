@@ -15,7 +15,7 @@ const Card: CollectionConfig = {
       required: true,
       maxLength: 50,
       admin: {
-        description: ({ _, value }) =>
+        description: ({ path, value }) =>
           `${
             typeof value === "string" ? 50 - value.length : "50"
           } characters left.`,
@@ -27,7 +27,7 @@ const Card: CollectionConfig = {
       required: true,
       maxLength: 120,
       admin: {
-        description: ({ _, value }) =>
+        description: ({ path, value }) =>
           `${
             typeof value === "string" ? 120 - value.length : "120"
           } characters left.`,

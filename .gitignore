@@ -1,5 +1,5 @@
-build
-dist
+# build
+# dist
 /src/media
 /src/portraits
 node_modules
