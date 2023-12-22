@@ -4,10 +4,10 @@ import payload from "payload";
 
 const sendNewsletter: CollectionAfterChangeHook = async ({ doc }) => {
   await payload.sendEmail({
-    to: "norbu.erdene@gmail.com",
+    to: "test@test.com",
     from: "Jonang Newsletter",
     subject: "Test Newsletter",
-    html: newsletter({ doc }),
+    html: doc.bodyHtml,
   });
 };
 
