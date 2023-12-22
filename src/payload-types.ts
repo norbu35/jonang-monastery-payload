@@ -12,9 +12,10 @@ export interface Config {
     media: Media;
     portraits: Portrait;
     pages: Page;
+    newsletters: Newsletter;
     news: News;
-    cards: Card;
     teachers: Teacher;
+    cards: Card;
     donations: Donation;
     quotes: Quote;
     'payload-preferences': PayloadPreference;
@@ -25,6 +26,7 @@ export interface Config {
     pageTitle: PageTitle;
     introText: IntroText;
     prominence: Prominence;
+    activities: Activity;
   };
 }
 export interface User {
@@ -144,6 +146,27 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
 }
+export interface Newsletter {
+  id: string;
+  body?: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  bodyHtml?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
 export interface News {
   id: string;
   headline: string;
@@ -167,27 +190,16 @@ export interface News {
   updatedAt: string;
   createdAt: string;
 }
-export interface Card {
-  id: string;
-  header: string;
-  body: string;
-  image: string | Media;
-  link: string | Page;
-  updatedAt: string;
-  createdAt: string;
-}
 export interface Teacher {
   id: string;
   name: string;
-  roles?:
-    | {
-        role?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  roles: {
+    role?: string | null;
+    id?: string | null;
+  }[];
+  orderOfAppearance: number;
   portrait: string | Portrait;
-  shortBio: string;
-  fullBio: {
+  bio: {
     root: {
       children: {
         type: string;
@@ -202,7 +214,16 @@ export interface Teacher {
     };
     [k: string]: unknown;
   };
-  fullBioHtml?: string | null;
+  bioHtml?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Card {
+  id: string;
+  header: string;
+  body: string;
+  image: string | Media;
+  link: string | Page;
   updatedAt: string;
   createdAt: string;
 }
@@ -217,8 +238,8 @@ export interface Donation {
 }
 export interface Quote {
   id: string;
-  title?: string | null;
-  quote?: {
+  title: string;
+  quote: {
     root: {
       children: {
         type: string;
@@ -232,7 +253,7 @@ export interface Quote {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
   quoteHtml?: string | null;
   addSourceLanguage?: boolean | null;
   originalQuote?: {
@@ -311,6 +332,28 @@ export interface Prominence {
   mainText: string;
   isQuote?: boolean | null;
   quoteSource?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+export interface Activity {
+  id: string;
+  description?: {
+    root: {
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      type: string;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  descriptionHtml?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

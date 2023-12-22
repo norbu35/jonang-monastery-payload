@@ -38,8 +38,9 @@ const Teachers: CollectionConfig = {
       type: "number",
       required: true,
       admin: {
+        width: "5rem",
         description:
-          "The order in which the teachers appear, lower number comes first.",
+          "The order in which the teacher appears, lower number comes first.",
       },
     },
     {
