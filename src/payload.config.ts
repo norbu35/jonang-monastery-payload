@@ -77,4 +77,9 @@ export default buildConfig({
   graphQL: {
     disable: true,
   },
+  upload: {
+    limits: {
+      fileSize: 3000000,
+    },
+  },
 });
