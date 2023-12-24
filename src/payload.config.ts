@@ -18,7 +18,7 @@ import News from "./collections/News";
 import Donations from "./collections/Donations";
 import Newsletters from "./collections/Newsletters";
 import Header from "./globals/Header";
-import PageTitle from "./globals/PageTitle";
+import SiteTitle from "./globals/SiteTitle";
 import IntroText from "./globals/IntroText";
 import Eminence from "./globals/Eminence";
 import Activities from "./globals/Activities";
@@ -34,7 +34,7 @@ export default buildConfig({
     },
   },
   editor: lexicalEditor({}),
-  globals: [Header, PageTitle, IntroText, Eminence, Activities, Footer],
+  globals: [Header, SiteTitle, IntroText, Eminence, Activities, Footer],
   collections: [
     Users,
     Media,

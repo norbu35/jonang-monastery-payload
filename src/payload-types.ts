@@ -23,7 +23,7 @@ export interface Config {
   };
   globals: {
     header: Header;
-    pageTitle: PageTitle;
+    siteTitle: SiteTitle;
     introText: IntroText;
     prominence: Prominence;
     activities: Activity;
@@ -314,9 +314,12 @@ export interface Header {
   updatedAt?: string | null;
   createdAt?: string | null;
 }
-export interface PageTitle {
+export interface SiteTitle {
   id: string;
   title: string;
+  secondaryTitle?: string | null;
+  logo?: string | Media | null;
+  subheading?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
