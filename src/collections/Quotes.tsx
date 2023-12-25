@@ -82,7 +82,6 @@ const Quotes: CollectionConfig = {
     {
       name: "source",
       type: "text",
-      defaultValue: ({ data }) => data.title,
     },
   ],
 };
