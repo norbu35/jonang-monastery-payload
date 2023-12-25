@@ -15,9 +15,23 @@ const Teachers: CollectionConfig = {
   },
   fields: [
     {
-      name: "name",
-      type: "text",
-      required: true,
+      type: "row",
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "orderOfAppearance",
+          type: "number",
+          required: true,
+          admin: {
+            description:
+              "The order in which the teacher appears, lower number comes first.",
+          },
+        },
+      ],
     },
     {
       name: "roles",
@@ -32,15 +46,6 @@ const Teachers: CollectionConfig = {
           type: "text",
         },
       ],
-    },
-    {
-      name: "orderOfAppearance",
-      type: "number",
-      required: true,
-      admin: {
-        description:
-          "The order in which the teacher appears, lower number comes first.",
-      },
     },
     {
       name: "portrait",
