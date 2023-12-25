@@ -17,12 +17,63 @@ const Header: GlobalConfig = {
       maxRows: 6,
       fields: [
         {
-          name: "page",
+          name: "navigationType",
+          type: "radio",
+          options: [
+            {
+              label: "Link",
+              value: "link",
+            },
+            {
+              label: "Label",
+              value: "label",
+            },
+          ],
+          defaultValue: "link",
+          admin: {
+            description:
+              "Choose Label if the navigation item is just a label for a submenu and does not link to a page.",
+          },
+        },
+        {
+          name: "label",
+          type: "text",
+          required: true,
+          admin: {
+            condition: (_, siblingData) =>
+              siblingData.navigationType === "label",
+          },
+        },
+        {
+          name: "link",
           type: "relationship",
           relationTo: "pages",
           required: true,
+          admin: {
+            condition: (_, siblingData) =>
+              siblingData.navigationType === "link",
+          },
+        },
+        {
+          name: "sublinks",
+          type: "array",
+          admin: {
+            description:
+              "If the navigation item should have a dropdown submenu which contains more links, add them here.",
+          },
+          fields: [
+            {
+              name: "page",
+              type: "relationship",
+              relationTo: "pages",
+            },
+          ],
         },
       ],
+      admin: {
+        description:
+          "Each navigation item can be a just a link on click, a link on click and open a submenu on hover, or just a label with no link and which opens a submenu on hover.",
+      },
     },
     {
       name: "logo",
