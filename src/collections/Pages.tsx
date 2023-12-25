@@ -65,10 +65,10 @@ const Pages: CollectionConfig = {
       required: true,
       editor: lexicalEditor({
         features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
           HeadingFeature({
             enabledHeadingSizes: ["h2", "h3", "h4", "h5", "h6"],
           }),
-          ...defaultFeatures,
           HTMLConverterFeature({}),
         ],
       }),
