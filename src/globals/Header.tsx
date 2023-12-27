@@ -68,6 +68,17 @@ const Header: GlobalConfig = {
           },
         },
         {
+          name: "linkLabel",
+          type: "text",
+          required: true,
+          admin: {
+            description:
+              "Provide a label which will be used to show the link in the menu.",
+            condition: (_, siblingData) =>
+              siblingData.navigationType === "link",
+          },
+        },
+        {
           name: "link",
           type: "text",
           required: true,
