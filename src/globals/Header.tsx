@@ -96,9 +96,60 @@ const Header: GlobalConfig = {
           },
           fields: [
             {
+              name: "navigationType",
+              type: "radio",
+              options: [
+                {
+                  label: "Page",
+                  value: "page",
+                },
+                {
+                  label: "External Link",
+                  value: "link",
+                },
+              ],
+              defaultValue: "page",
+              admin: {
+                description: () => (
+                  <div>
+                    Page: choose a page on this website to link to.<br />
+                    Label: create a label which doesn't link to anything, but
+                    which opens a dropdown submenu containing links.<br />
+                    External link: link to an external website.<br />
+                  </div>
+                ),
+              },
+            },
+            {
               name: "page",
               type: "relationship",
               relationTo: "pages",
+              required: true,
+              admin: {
+                description: "Select the page to link to.",
+                condition: (_, siblingData) =>
+                  siblingData.navigationType === "page",
+              },
+            },
+            {
+              name: "link",
+              type: "text",
+              required: true,
+              admin: {
+                description: () => (
+                  <div>
+                    Provide a full{" "}
+                    <a
+                      href="https://www.hostinger.com/tutorials/what-is-a-url#What_Is_an_Example_of_a_URL_Address"
+                      target="_blank"
+                    >
+                      URL to the website.
+                    </a>
+                  </div>
+                ),
+                condition: (_, siblingData) =>
+                  siblingData.navigationType === "link",
+              },
             },
           ],
         },
