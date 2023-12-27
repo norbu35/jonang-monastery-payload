@@ -133,6 +133,14 @@ const Header: GlobalConfig = {
               },
             },
             {
+              name: "linkLabel",
+              type: "text",
+              admin: {
+                condition: (_, siblingData) =>
+                  siblingData.navigationType === "link",
+              },
+            },
+            {
               name: "link",
               type: "text",
               required: true,
