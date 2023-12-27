@@ -74,12 +74,12 @@ const Header: GlobalConfig = {
           admin: {
             description: () => (
               <div>
-                Provide a full{" "}
+                Provide a{" "}
                 <a
                   href="https://www.hostinger.com/tutorials/what-is-a-url#What_Is_an_Example_of_a_URL_Address"
                   target="_blank"
                 >
-                  URL to the website.
+                  full URL to the website.
                 </a>
               </div>
             ),
@@ -109,16 +109,6 @@ const Header: GlobalConfig = {
                 },
               ],
               defaultValue: "page",
-              admin: {
-                description: () => (
-                  <div>
-                    Page: choose a page on this website to link to.<br />
-                    Label: create a label which doesn't link to anything, but
-                    which opens a dropdown submenu containing links.<br />
-                    External link: link to an external website.<br />
-                  </div>
-                ),
-              },
             },
             {
               name: "page",
@@ -138,12 +128,12 @@ const Header: GlobalConfig = {
               admin: {
                 description: () => (
                   <div>
-                    Provide a full{" "}
+                    Provide a{" "}
                     <a
                       href="https://www.hostinger.com/tutorials/what-is-a-url#What_Is_an_Example_of_a_URL_Address"
                       target="_blank"
                     >
-                      URL to the website.
+                      full URL to the website.
                     </a>
                   </div>
                 ),
