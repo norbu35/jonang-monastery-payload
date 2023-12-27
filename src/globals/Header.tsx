@@ -79,7 +79,8 @@ const Header: GlobalConfig = {
           },
         },
         {
-          name: "link",
+          name: "url",
+          label: "URL",
           type: "text",
           required: true,
           admin: {
@@ -135,13 +136,15 @@ const Header: GlobalConfig = {
             {
               name: "linkLabel",
               type: "text",
+              required: true,
               admin: {
                 condition: (_, siblingData) =>
                   siblingData.navigationType === "link",
               },
             },
             {
-              name: "link",
+              name: "url",
+              label: "URL",
               type: "text",
               required: true,
               admin: {
