@@ -7,7 +7,7 @@ const Header: GlobalConfig = {
   },
   admin: {
     description:
-      "The part of the website which appears at the top (for desktops) or at the bottom of the screen (for mobiles) and contains the logo and the navigation links.",
+      "The part of the website which appears at the top (for desktop computers) or at the bottom of the screen (for mobile phones) and contains the logo and the navigation links.",
   },
   fields: [
     {
@@ -21,18 +21,39 @@ const Header: GlobalConfig = {
           type: "radio",
           options: [
             {
-              label: "Link",
-              value: "link",
+              label: "Page",
+              value: "page",
             },
             {
               label: "Label",
               value: "label",
             },
+            {
+              label: "External Link",
+              value: "link",
+            },
           ],
-          defaultValue: "link",
+          defaultValue: "page",
           admin: {
-            description:
-              "Choose Label if the navigation item is just a label for a submenu and does not link to a page.",
+            description: () => (
+              <div>
+                Page: choose a page on this website to link to.<br />
+                Label: create a label which doesn't link to anything, but which
+                opens a dropdown submenu containing links.<br />
+                External link: link to an external website.<br />
+              </div>
+            ),
+          },
+        },
+        {
+          name: "page",
+          type: "relationship",
+          relationTo: "pages",
+          required: true,
+          admin: {
+            description: "Select the page to link to.",
+            condition: (_, siblingData) =>
+              siblingData.navigationType === "page",
           },
         },
         {
@@ -40,16 +61,28 @@ const Header: GlobalConfig = {
           type: "text",
           required: true,
           admin: {
+            description:
+              "Provide the label which will appear in the navigation menu.",
             condition: (_, siblingData) =>
               siblingData.navigationType === "label",
           },
         },
         {
           name: "link",
-          type: "relationship",
-          relationTo: "pages",
+          type: "text",
           required: true,
           admin: {
+            description: () => (
+              <div>
+                Provide a full{" "}
+                <a
+                  href="https://www.hostinger.com/tutorials/what-is-a-url#What_Is_an_Example_of_a_URL_Address"
+                  target="_blank"
+                >
+                  URL to the website.
+                </a>
+              </div>
+            ),
             condition: (_, siblingData) =>
               siblingData.navigationType === "link",
           },
@@ -59,7 +92,7 @@ const Header: GlobalConfig = {
           type: "array",
           admin: {
             description:
-              "If the navigation item should have a dropdown submenu which contains more links, add them here.",
+              "If the navigation item should have a dropdown submenu which contains more links, add them here. The submenu appears on hover (desktop) or by clicking an expand button (mobile).",
           },
           fields: [
             {
@@ -72,7 +105,7 @@ const Header: GlobalConfig = {
       ],
       admin: {
         description:
-          "Each navigation item can be a just a link on click, a link on click and open a submenu on hover, or just a label with no link and which opens a submenu on hover.",
+          "Each navigation item can be a link on click, a link on click and also expand on hover (desktop) or expand by button (mobile), or just a label which doesn't link but expands.",
       },
     },
     {
@@ -80,6 +113,9 @@ const Header: GlobalConfig = {
       type: "upload",
       relationTo: "media",
       required: true,
+      admin: {
+        description: "The logo which appears on the left side of the Header.",
+      },
     },
   ],
 };

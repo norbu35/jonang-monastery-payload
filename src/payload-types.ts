@@ -194,11 +194,11 @@ export interface News {
 export interface Teacher {
   id: string;
   name: string;
+  orderOfAppearance: number;
   roles: {
     role?: string | null;
     id?: string | null;
   }[];
-  orderOfAppearance: number;
   portrait: string | Portrait;
   bio: {
     root: {
@@ -307,7 +307,15 @@ export interface PayloadMigration {
 export interface Header {
   id: string;
   navigation: {
-    page: string | Page;
+    navigationType?: ('link' | 'label') | null;
+    label?: string | null;
+    link?: (string | null) | Page;
+    sublinks?:
+      | {
+          page?: (string | null) | Page;
+          id?: string | null;
+        }[]
+      | null;
     id?: string | null;
   }[];
   logo: string | Media;
