@@ -1,13 +1,13 @@
 import { GlobalConfig } from "payload/types";
 
-const Eminence: GlobalConfig = {
+const Prominence: GlobalConfig = {
   slug: "prominence",
   access: {
     read: () => true,
   },
   admin: {
     description:
-      "A photo and a body of text of a prominent person, appearing directly after the introductory text.",
+      "A photo of and a body of text about a prominent person, appearing directly after the introductory text.",
   },
   fields: [
     {
@@ -56,4 +56,4 @@ const Eminence: GlobalConfig = {
   ],
 };
 
-export default Eminence;
+export default Prominence;

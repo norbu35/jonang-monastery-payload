@@ -20,7 +20,7 @@ import Newsletters from "./collections/Newsletters";
 import Header from "./globals/Header";
 import SiteTitle from "./globals/SiteTitle";
 import IntroText from "./globals/IntroText";
-import Eminence from "./globals/Eminence";
+import Prominence from "./globals/Prominence";
 import Activities from "./globals/Activities";
 import Footer from "./globals/Footer";
 
@@ -29,12 +29,12 @@ export default buildConfig({
     user: Users.slug,
     bundler: viteBundler(),
     livePreview: {
-      url: "http://localhost:3000",
+      url: "http://localhost:5173",
       collections: ["newsleters", "pages"],
     },
   },
   editor: lexicalEditor({}),
-  globals: [Header, SiteTitle, IntroText, Eminence, Activities, Footer],
+  globals: [Header, SiteTitle, IntroText, Prominence, Activities, Footer],
   collections: [
     Users,
     Media,

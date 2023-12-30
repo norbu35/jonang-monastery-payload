@@ -58,6 +58,9 @@ devDependencies:
   nodemon:
     specifier: ^2.0.22
     version: 2.0.22
+  payload-types:
+    specifier: link:@/payload-types
+    version: link:@/payload-types
   ts-node:
     specifier: ^9.1.1
     version: 9.1.1(typescript@4.9.5)

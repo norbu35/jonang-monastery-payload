@@ -307,12 +307,17 @@ export interface PayloadMigration {
 export interface Header {
   id: string;
   navigation: {
-    navigationType?: ('link' | 'label') | null;
+    navigationType?: ('page' | 'label' | 'link') | null;
+    page?: (string | null) | Page;
     label?: string | null;
-    link?: (string | null) | Page;
+    linkLabel?: string | null;
+    url?: string | null;
     sublinks?:
       | {
+          navigationType?: ('page' | 'link') | null;
           page?: (string | null) | Page;
+          linkLabel?: string | null;
+          url?: string | null;
           id?: string | null;
         }[]
       | null;
