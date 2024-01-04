@@ -15,6 +15,11 @@ const News: CollectionConfig = {
   },
   fields: [
     {
+      name: "slug",
+      type: "text",
+      required: true,
+    },
+    {
       name: "headline",
       type: "text",
       required: true,
