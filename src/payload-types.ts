@@ -170,6 +170,7 @@ export interface Newsletter {
 }
 export interface News {
   id: string;
+  slug: string;
   headline: string;
   body: {
     root: {

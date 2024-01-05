@@ -69,7 +69,7 @@ export default buildConfig({
     max: 1000,
     trustProxy: true,
   },
-  cors: process.env.NODE_ENV === " production" ? ["https://jonang.in"] : [
+  cors: process.env.NODE_ENV === " production" ? ["http://cms.jonang.in"] : [
     "http://localhost:4321",
     "https://jonang.netlify.app",
     "http://localhost:3000",
