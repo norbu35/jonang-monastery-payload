@@ -9,6 +9,9 @@ type Props = {
 const Template: React.FC<Props> = ({ contents }) => {
   return (
     <Html>
+      <Text>
+        This is a test newsletter
+      </Text>
       {contents}
     </Html>
   );

@@ -7,7 +7,7 @@ const sendNewsletter: CollectionAfterChangeHook = async ({ doc }) => {
     to: "test@test.com",
     from: "Jonang Newsletter",
     subject: "Test Newsletter",
-    html: doc.bodyHtml,
+    html: newsletter(doc),
   });
 };
 
