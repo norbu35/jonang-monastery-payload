@@ -1748,16 +1748,16 @@
     vite "^4.4.9"
     vite-plugin-virtual "^0.2.0"
 
-"@payloadcms/db-mongodb@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@payloadcms/db-mongodb/-/db-mongodb-1.1.1.tgz#28515c6f2e551a0664d740bb36443fd379ceb22a"
-  integrity sha512-wTqIuv/eFe5si5sg+uOltqCS6kwnKtB7d7qv9GSpSKpPIp67kefNymno3/EmAo6q/AhEve1jnV0I/kb+tVPFLw==
+"@payloadcms/db-mongodb@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@payloadcms/db-mongodb/-/db-mongodb-1.2.0.tgz#9876da54ec18b5c01952f6db57a5d0f8259ed516"
+  integrity sha512-cRgy2Dl/KXBxvm4kBkrRZcWge9R3dWC2taocjFxaTlzM0SQrQQtwGej8IiKmnUAswz897YzkQR4wQQwidEtb3A==
   dependencies:
     bson-objectid "2.0.4"
     deepmerge "4.3.1"
     get-port "5.1.1"
     http-status "1.6.2"
-    mongoose "6.12.0"
+    mongoose "6.12.3"
     mongoose-aggregate-paginate-v2 "1.0.6"
     mongoose-paginate-v2 "1.7.22"
     prompts "2.4.2"
@@ -5709,10 +5709,10 @@ mongoose-paginate-v2@1.7.22:
   resolved "https://registry.yarnpkg.com/mongoose-paginate-v2/-/mongoose-paginate-v2-1.7.22.tgz#9f178fe5fb71597e231639adac84d3ab9a96c62a"
   integrity sha512-xW5GugkE21DJiu9e13EOxKt4ejEKQkRP/S1PkkXRjnk2rRZVKBcld1nPV+VJ/YCPfm8hb3sz9OvI7O38RmixkA==
 
-mongoose@6.12.0:
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.12.0.tgz#53035998245a029144411331373c5ce878f62815"
-  integrity sha512-sd/q83C6TBRPBrrD2A/POSbA/exbCFM2WOuY7Lf2JuIJFlHFG39zYSDTTAEiYlzIfahNOLmXPxBGFxdAch41Mw==
+mongoose@6.12.3:
+  version "6.12.3"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.12.3.tgz#bc921ca2fd6d4c1a48dbf7bc88cf3eef1d3c4926"
+  integrity sha512-MNJymaaXali7w7rHBxVUoQ3HzHHMk/7I/+yeeoSa4rUzdjZwIWQznBNvVgc0A8ghuJwsuIkb5LyLV6gSjGjWyQ==
   dependencies:
     bson "^4.7.2"
     kareem "2.5.1"
@@ -5819,12 +5819,12 @@ node-releases@^2.0.14:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.14.tgz#2ffb053bceb8b2be8495ece1ab6ce600c4461b0b"
   integrity sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==
 
-nodemailer@6.9.4:
-  version "6.9.4"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.9.4.tgz#93bd4a60eb0be6fa088a0483340551ebabfd2abf"
-  integrity sha512-CXjQvrQZV4+6X5wP6ZIgdehJamI63MFoYFGGPtHudWym9qaEHDNdPzaj5bfMCvxG1vhAileSWW90q7nL0N36mA==
+nodemailer@6.9.8, nodemailer@^6.9.8:
+  version "6.9.8"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.9.8.tgz#29601e80440f2af7aa62b32758fdac7c6b784143"
+  integrity sha512-cfrYUk16e67Ks051i4CntM9kshRYei1/o/Gi8K1d+R34OIs21xdFnW7Pt7EucmVKA0LKtqUGNcjMZ7ehjl49mQ==
 
-nodemailer@^6.9.1, nodemailer@^6.9.7:
+nodemailer@^6.9.1:
   version "6.9.7"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.9.7.tgz#ec2f488f62ba1558e7b19239b62778df4a5c4397"
   integrity sha512-rUtR77ksqex/eZRLmQ21LKVH5nAAsVicAtAYudK7JgwenEDZ0UIQ1adUGqErz7sMkWYxWTTU1aeP2Jga6WQyJw==
@@ -6168,10 +6168,10 @@ pause@0.0.1:
   version "0.0.0"
   uid ""
 
-payload@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-2.5.0.tgz#42bf5bf3165bfc73373b9ac046b990303f5da4d4"
-  integrity sha512-OQRpRsQJhrQZ9EKsTCpcL9a9rxpNIEj2CvCDn8QEozx+rD0cUZmOmwIeK5HilXVqvjO9v70kllO5Jtr8QNMjSA==
+payload@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/payload/-/payload-2.6.0.tgz#5db724f4666aa0541cd026ecb07925fe002f34e8"
+  integrity sha512-DWRatMu9fkqClLvC3DStr1qY1M27tGjsmbFP+cQ7aN0vLpXGEMSorr1uOjtYGGElgapW2Cz2V8DRL4vtqBvRYA==
   dependencies:
     "@date-io/date-fns" "2.16.0"
     "@dnd-kit/core" "6.0.8"
@@ -6226,7 +6226,7 @@ payload@^2.5.0:
     minimist "1.2.8"
     mkdirp "1.0.4"
     monaco-editor "0.38.0"
-    nodemailer "6.9.4"
+    nodemailer "6.9.8"
     object-to-formdata "4.5.1"
     passport "0.6.0"
     passport-anonymous "1.0.1"

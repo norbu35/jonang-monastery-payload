@@ -70,9 +70,10 @@ export default buildConfig({
     trustProxy: true,
   },
   cors: process.env.NODE_ENV === " production" ? ["http://cms.jonang.in"] : [
-    "http://localhost:4321",
     "http://localhost:3000",
+    "http://127.0.0.1:3000",
   ],
+  csrf: ["http://127.0.0.1", "http://localhost:3000"],
   graphQL: {
     disable: true,
   },
