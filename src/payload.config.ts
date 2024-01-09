@@ -23,6 +23,7 @@ import IntroText from "./globals/IntroText";
 import Prominence from "./globals/Prominence";
 import Activities from "./globals/Activities";
 import Footer from "./globals/Footer";
+import PublishButton from "./components/PublishButton";
 
 export default buildConfig({
   admin: {
@@ -31,6 +32,9 @@ export default buildConfig({
     livePreview: {
       url: "http://localhost:5173",
       collections: ["newsleters", "pages"],
+    },
+    components: {
+      actions: [PublishButton],
     },
   },
   editor: lexicalEditor({}),
