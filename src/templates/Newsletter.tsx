@@ -12,7 +12,7 @@ const Template: React.FC<Props> = ({ contents }) => {
       <Text>
         This is a test newsletter
       </Text>
-      {contents}
+      {contents.bodyHtml}
     </Html>
   );
 };

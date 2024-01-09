@@ -25,10 +25,13 @@ dependencies:
     version: 0.4.1(@lexical/clipboard@0.12.5)(payload@2.6.0)(typescript@4.9.5)(yjs@13.6.10)
   '@react-email/components':
     specifier: ^0.0.12
-    version: 0.0.12(react@18.2.0)
+    version: 0.0.12(@types/react@18.2.47)(react@18.2.0)
   '@react-email/render':
     specifier: 0.0.10
     version: 0.0.10
+  '@types/react':
+    specifier: ^18.2.47
+    version: 18.2.47
   cross-env:
     specifier: ^7.0.3
     version: 7.0.3
@@ -43,7 +46,13 @@ dependencies:
     version: 6.9.8
   payload:
     specifier: ^2.6.0
-    version: 2.6.0(typescript@4.9.5)(webpack@5.89.0)
+    version: 2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0)
+  react:
+    specifier: ^18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: ^18.2.0
+    version: 18.2.0(react@18.2.0)
   react-email:
     specifier: 1.10.0
     version: 1.10.0
@@ -1136,7 +1145,7 @@ packages:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
     dev: false
 
-  /@emotion/react@11.11.3(react@18.2.0):
+  /@emotion/react@11.11.3(@types/react@18.2.47)(react@18.2.0):
     resolution: {integrity: sha512-Cnn0kuq4DoONOMcnoVsTOR8E+AdnKFf//6kUWc4LCdnxj31pZWn7rIULd6Y7/Js1PiPHzn7SKCM9vB/jBni8eA==}
     peerDependencies:
       '@types/react': '*'
@@ -1152,6 +1161,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@18.2.0)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
+      '@types/react': 18.2.47
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: false
@@ -2131,7 +2141,7 @@ packages:
       connect-history-api-fallback: 1.6.0
       get-port: 5.1.1
       path-browserify: 1.0.1
-      payload: 2.6.0(typescript@4.9.5)(webpack@5.89.0)
+      payload: 2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0)
       react-dom: 18.2.0(react@18.2.0)
       vite: 4.5.1
       vite-plugin-virtual: 0.2.0(vite@4.5.1)
@@ -2159,7 +2169,7 @@ packages:
       mongoose: 6.12.3
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
-      payload: 2.6.0(typescript@4.9.5)(webpack@5.89.0)
+      payload: 2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0)
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -2178,7 +2188,7 @@ packages:
       '@aws-sdk/lib-storage': 3.485.0(@aws-sdk/client-s3@3.485.0)
       amazon-cognito-identity-js: 6.3.7
       nodemailer: 6.9.8
-      payload: 2.6.0(typescript@4.9.5)(webpack@5.89.0)
+      payload: 2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0)
       resend: 0.17.2
     transitivePeerDependencies:
       - aws-crt
@@ -2192,7 +2202,7 @@ packages:
       payload: ^0.18.5 || ^1.0.0 || ^2.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      payload: 2.6.0(typescript@4.9.5)(webpack@5.89.0)
+      payload: 2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0)
       react: 18.2.0
     dev: false
 
@@ -2217,7 +2227,7 @@ packages:
       i18next: 22.5.1
       lexical: 0.12.5
       lodash: 4.17.21
-      payload: 2.6.0(typescript@4.9.5)(webpack@5.89.0)
+      payload: 2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-error-boundary: 4.0.12(react@18.2.0)
@@ -2241,7 +2251,7 @@ packages:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
     dev: false
 
-  /@radix-ui/react-compose-refs@1.0.1(react@18.2.0):
+  /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.47)(react@18.2.0):
     resolution: {integrity: sha512-fDSBgd44FKHa1FRMU59qBMPFcl2PZE+2nmqunj+BWFyYYjnhIDWL2ItDs3rrbJDQOtzt5nIebLCQc4QRfz6LJw==}
     peerDependencies:
       '@types/react': '*'
@@ -2251,10 +2261,11 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.8
+      '@types/react': 18.2.47
       react: 18.2.0
     dev: false
 
-  /@radix-ui/react-slot@1.0.2(react@18.2.0):
+  /@radix-ui/react-slot@1.0.2(@types/react@18.2.47)(react@18.2.0):
     resolution: {integrity: sha512-YeTpuq4deV+6DusvVUW4ivBgnkHwECUu0BiN43L5UCDFgdhsRUWAghhTF5MbvNTPzmiFOx90asDSUjWuCNapwg==}
     peerDependencies:
       '@types/react': '*'
@@ -2264,7 +2275,8 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.8
-      '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.47)(react@18.2.0)
+      '@types/react': 18.2.47
       react: 18.2.0
     dev: false
 
@@ -2294,7 +2306,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-email/components@0.0.12(react@18.2.0):
+  /@react-email/components@0.0.12(@types/react@18.2.47)(react@18.2.0):
     resolution: {integrity: sha512-siVu1xcMV3u14aBIIMWQKVma/EC9TitRYf9tOL1bNXhMFtJhY4ozBudF0Lk4Gm5p8Dn9ZeitoenKiJ5XiVXrdg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -2306,7 +2318,7 @@ packages:
       '@react-email/container': 0.0.10(react@18.2.0)
       '@react-email/font': 0.0.4(react@18.2.0)
       '@react-email/head': 0.0.6(react@18.2.0)
-      '@react-email/heading': 0.0.9
+      '@react-email/heading': 0.0.9(@types/react@18.2.47)
       '@react-email/hr': 0.0.6(react@18.2.0)
       '@react-email/html': 0.0.6(react@18.2.0)
       '@react-email/img': 0.0.6(react@18.2.0)
@@ -2348,11 +2360,11 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-email/heading@0.0.9:
+  /@react-email/heading@0.0.9(@types/react@18.2.47):
     resolution: {integrity: sha512-xzkcGlm+/aFrNlJZBKzxRKkRYJ2cRx92IqmSKAuGnwuKQ/uMKomXzPsHPu3Dclmnhn3wVKj4uprkgQOoxP6uXQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
-      '@radix-ui/react-slot': 1.0.2(react@18.2.0)
+      '@radix-ui/react-slot': 1.0.2(@types/react@18.2.47)(react@18.2.0)
       react: 18.2.0
     transitivePeerDependencies:
       - '@types/react'
@@ -3737,7 +3749,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001576
-      electron-to-chromium: 1.4.624
+      electron-to-chromium: 1.4.625
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
     dev: false
@@ -4532,8 +4544,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
 
-  /electron-to-chromium@1.4.624:
-    resolution: {integrity: sha512-w9niWuheXjz23vezH3w90n9KKcHe0UkhTfJ+rXJkuGGogHyQbQ7KS1x0a8ER4LbI3ljFS/gqxKh1TidNXDMHOg==}
+  /electron-to-chromium@1.4.625:
+    resolution: {integrity: sha512-DENMhh3MFgaPDoXWrVIqSPInQoLImywfCwrSmVl3cf9QHzoZSiutHwGaB/Ql3VkqcQV30rzgdM+BjKqBAJxo5Q==}
     dev: false
 
   /emoji-regex@8.0.0:
@@ -6713,7 +6725,7 @@ packages:
     resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
     dev: false
 
-  /payload@2.6.0(typescript@4.9.5)(webpack@5.89.0):
+  /payload@2.6.0(@types/react@18.2.47)(typescript@4.9.5)(webpack@5.89.0):
     resolution: {integrity: sha512-DWRatMu9fkqClLvC3DStr1qY1M27tGjsmbFP+cQ7aN0vLpXGEMSorr1uOjtYGGElgapW2Cz2V8DRL4vtqBvRYA==}
     engines: {node: '>=14'}
     hasBin: true
@@ -6795,7 +6807,7 @@ packages:
       react-image-crop: 10.1.8(react@18.2.0)
       react-router-dom: 5.3.4(react@18.2.0)
       react-router-navigation-prompt: 1.9.6(react-router-dom@5.3.4)(react@18.2.0)
-      react-select: 5.7.4(react-dom@18.2.0)(react@18.2.0)
+      react-select: 5.7.4(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0)
       react-toastify: 8.2.0(react-dom@18.2.0)(react@18.2.0)
       sanitize-filename: 1.6.3
       sass: 1.69.4
@@ -7345,7 +7357,7 @@ packages:
       tiny-warning: 1.0.3
     dev: false
 
-  /react-select@5.7.4(react-dom@18.2.0)(react@18.2.0):
+  /react-select@5.7.4(@types/react@18.2.47)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-NhuE56X+p9QDFh4BgeygHFIvJJszO1i1KSkg/JPcIJrbovyRtI+GuOEa4XzFCEpZRAEoEI8u/cAHK+jG/PgUzQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -7353,7 +7365,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.8
       '@emotion/cache': 11.11.0
-      '@emotion/react': 11.11.3(react@18.2.0)
+      '@emotion/react': 11.11.3(@types/react@18.2.47)(react@18.2.0)
       '@floating-ui/dom': 1.5.4
       '@types/react-transition-group': 4.4.10
       memoize-one: 6.0.0
@@ -7361,7 +7373,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
-      use-isomorphic-layout-effect: 1.1.2(react@18.2.0)
+      use-isomorphic-layout-effect: 1.1.2(@types/react@18.2.47)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
     dev: false
@@ -8460,7 +8472,7 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /use-isomorphic-layout-effect@1.1.2(react@18.2.0):
+  /use-isomorphic-layout-effect@1.1.2(@types/react@18.2.47)(react@18.2.0):
     resolution: {integrity: sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA==}
     peerDependencies:
       '@types/react': '*'
@@ -8469,6 +8481,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
+      '@types/react': 18.2.47
       react: 18.2.0
     dev: false
 
