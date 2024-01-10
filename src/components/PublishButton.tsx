@@ -1,10 +1,12 @@
+import React from "react";
 import buildSite from "../hooks/buildSite";
 
 const style = {
-  width: "4rem",
-  height: "2rem",
-  borderRadius: "0.5rem",
+  width: "6rem",
+  height: "3rem",
+  borderRadius: "0.25rem",
   padding: "0.5rem",
+  border: "none",
 };
 
 const PublishButton: React.FC = () => {

@@ -3,6 +3,7 @@ import path from "path";
 
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { viteBundler } from "@payloadcms/bundler-vite";
+import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
 import seoPlugin from "@payloadcms/plugin-seo";
@@ -28,7 +29,7 @@ import PublishButton from "./components/PublishButton";
 export default buildConfig({
   admin: {
     user: Users.slug,
-    bundler: viteBundler(),
+    bundler: webpackBundler(),
     livePreview: {
       url: "http://localhost:5173",
       collections: ["newsleters", "pages"],

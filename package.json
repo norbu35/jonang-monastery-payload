@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@payloadcms/bundler-vite": "^0.1.5",
+    "@payloadcms/bundler-webpack": "^1.0.5",
     "@payloadcms/db-mongodb": "^1.2.0",
     "@payloadcms/plugin-cloud": "^2.2.6",
     "@payloadcms/plugin-seo": "^1.0.15",
