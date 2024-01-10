@@ -2,7 +2,6 @@
 import path from "path";
 
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { viteBundler } from "@payloadcms/bundler-vite";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
@@ -31,7 +30,9 @@ export default buildConfig({
     user: Users.slug,
     bundler: webpackBundler(),
     livePreview: {
-      url: "http://localhost:5173",
+      url: process.env.NODE_ENV === "production"
+        ? "http://167.71.60.250:5173"
+        : "http://localhost:5173",
       collections: ["newsletters", "pages"],
     },
     components: {
