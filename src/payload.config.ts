@@ -32,7 +32,7 @@ export default buildConfig({
     bundler: webpackBundler(),
     livePreview: {
       url: "http://localhost:5173",
-      collections: ["newsleters", "pages"],
+      collections: ["newsletters", "pages"],
     },
     components: {
       actions: [PublishButton],
@@ -78,6 +78,7 @@ export default buildConfig({
     ? ["http://cms.jonang.in", "http://167.71.60.250"]
     : [
       "http://localhost:3000",
+      "http://localhost:5173",
     ],
   csrf: ["http://localhost:3000"],
   graphQL: {

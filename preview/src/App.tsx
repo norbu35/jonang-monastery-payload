@@ -1,10 +1,14 @@
 "use client";
 import { useLivePreview } from "@payloadcms/live-preview-react";
 import { Page as PageType } from "@/payload-types";
+import Page from "./pages/Page";
+import Newsletter from "./pages/Newsletter";
 
 const PageClient: React.FC<{
   page: {
-    title: string;
+    title?: string;
+    contentHtml?: string;
+    bodyHtml?: string;
   };
 }> = ({ page: initialPage }) => {
   const { data } = useLivePreview<PageType>({
@@ -14,17 +18,9 @@ const PageClient: React.FC<{
   });
 
   return (
-    <>
-      <div className="flex h-40 items-center justify-center bg-[url('/src/assets/images/vajra-bell.webp')] bg-cover bg-center md:mt-20 md:h-52 lg:mt-[96px] lg:h-60">
-        <h1 className="text-center font-quicksand text-4xl font-semibold text-white">
-          {data && data.title}
-        </h1>
-      </div>
-      <div
-        dangerouslySetInnerHTML={{ __html: data.contentHtml }}
-        className="section-padding"
-      />
-    </>
+    data?.contentHtml && <Page data={data} /> ||
+    data?.bodyHtml && <Newsletter data={data} /> ||
+    null
   );
 };
 

@@ -5,6 +5,7 @@ import {
   lexicalHTML,
 } from "@payloadcms/richtext-lexical";
 import { CollectionConfig } from "payload/types";
+import React from "react";
 
 const Pages: CollectionConfig = {
   slug: "pages",
