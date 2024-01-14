@@ -30,17 +30,16 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     bundler: viteBundler(),
-    vite: (defaultConfig) => {
-      return {
-        ...defaultConfig,
-        server: {
-          ...defaultConfig.server,
-          hmr: {
-            port: 31888,
-          },
-        },
-      };
-    },
+    // vite: (defaultConfig) => {
+    //   return {
+    //     ...defaultConfig,
+    //     server: {
+    //       hmr: {
+    //         port: 31888,
+    //       },
+    //     },
+    //   };
+    // },
     livePreview: {
       url: process.env.NODE_ENV === "production"
         ? "http://167.71.60.250:5173"
@@ -87,13 +86,11 @@ export default buildConfig({
     max: 1000,
     trustProxy: true,
   },
-  cors: process.env.NODE_ENV === " production"
-    ? [process.env.PAYLOAD_PUBLIC_SERVER_URL]
-    : [
-      "http://localhost:3000",
-      "http://localhost:5173",
-    ],
-  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL],
+  cors: process.env.NODE_ENV === " production" ? ["http://167.71.60.250"] : [
+    "http://localhost:3000",
+    "http://localhost:5173",
+  ],
+  csrf: ["http://167.71.60.250"],
   graphQL: {
     disable: true,
   },
