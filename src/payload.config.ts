@@ -3,6 +3,7 @@ import path from "path";
 
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { viteBundler } from "@payloadcms/bundler-vite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { buildConfig } from "payload/config";
 import seoPlugin from "@payloadcms/plugin-seo";
@@ -28,7 +29,18 @@ import PublishButton from "./components/PublishButton";
 export default buildConfig({
   admin: {
     user: Users.slug,
-    bundler: webpackBundler(),
+    bundler: viteBundler(),
+    vite: (defaultConfig) => {
+      return {
+        ...defaultConfig,
+        server: {
+          ...defaultConfig.server,
+          hmr: {
+            port: 31888,
+          },
+        },
+      };
+    },
     livePreview: {
       url: process.env.NODE_ENV === "production"
         ? "http://167.71.60.250:5173"
@@ -76,12 +88,12 @@ export default buildConfig({
     trustProxy: true,
   },
   cors: process.env.NODE_ENV === " production"
-    ? ["http://cms.jonang.in", "http://167.71.60.250"]
+    ? [process.env.PAYLOAD_PUBLIC_SERVER_URL]
     : [
       "http://localhost:3000",
       "http://localhost:5173",
     ],
-  csrf: ["http://localhost:3000"],
+  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL],
   graphQL: {
     disable: true,
   },

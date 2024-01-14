@@ -4,6 +4,7 @@ services:
   payload:
     image: node:18-alpine
     ports:
+      - "31888:31888"
       - "3000:3000"
     volumes:
       - .:/home/node/app
