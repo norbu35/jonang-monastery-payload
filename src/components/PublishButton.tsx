@@ -10,7 +10,16 @@ const style = {
 };
 
 const PublishButton: React.FC = () => {
-  return <button style={style} onClick={() => buildSite()}>Publish</button>;
+  return (
+    <button
+      style={style}
+      onClick={() => buildSite()}
+      onMouseEnter={(e) => e.currentTarget.style.cursor = "pointer"}
+      onMouseLeave={(e) => e.currentTarget.style.cursor = "default"}
+    >
+      Publish
+    </button>
+  );
 };
 
 export default PublishButton;
