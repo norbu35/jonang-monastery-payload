@@ -6,8 +6,8 @@ WORKDIR /home/node/app
 COPY package*.json ./
 
 COPY . .
-RUN yarn install
-RUN yarn build
+RUN pnpm install
+RUN pnpm build
 
 FROM base as runtime
 
@@ -16,7 +16,7 @@ ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
 
 WORKDIR /home/node/app
 COPY package*.json  ./
-COPY yarn.lock ./
+COPY pnpm.lock ./
 
 RUN yarn install
 COPY --from=builder /home/node/app/dist ./dist
