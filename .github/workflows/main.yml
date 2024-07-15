@@ -14,15 +14,4 @@ jobs:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.VPS_SSH_KEY }}
-        script: |
-          export SUDO_ASKPASS="./askpass.sh"
-          export DEBIAN_FRONTEND=noninteractive
-          sudo -A apt update
-          sudo -A apt upgrade -y
-          cd ./jonang-monastery-payload
-          git pull origin main
-          sudo -A docker buildx create --use --name mybuilder\
-          sudo -A docker buildx build --platform linux/amd64 -t jonang-payload:latest --load .
-          sudo -A docker stop jonang-payload || true
-          sudo -A docker rm jonang-payload || true
-          sudo -A docker run -d --name jonang-payload -p 3000:3000 jonang-payload:latest
+        script: './deploy.ssh'
