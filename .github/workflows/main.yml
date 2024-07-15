@@ -17,5 +17,7 @@ jobs:
         script: |
           cd ./jonang-monastery-payload
           git pull origin main
-          pnpm install
-          pm2 restart
+          docker buildx build -t jonang-payload:latest --load .
+          docker stop jonang-payload || true
+          docker rm jonang-payload || true
+          docker run -d --name jonang-payload -p 3000:3000 jonang-payload:latest
