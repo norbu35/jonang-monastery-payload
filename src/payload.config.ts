@@ -66,8 +66,8 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+   db: mongooseAdapter({
+     url: process.env.DATABASE_URI,
   }),
   plugins: [
     seoPlugin({
