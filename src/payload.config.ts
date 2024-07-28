@@ -32,15 +32,15 @@ export default buildConfig({
     bundler:
       // process.env.NODE_ENV === "production" ? viteBundler() : webpackBundler(),
       webpackBundler(),
-    livePreview: {
-      url:
-        process.env.NODE_ENV === "production"
-          ? process.env.PAYLOAD_PUBLIC_SERVER_URL +
-            ":" +
-            process.env.LIVE_PREVIEW_PORT
-          : "http://localhost" + process.env.LIVE_PREVIEW_PORT,
-      collections: ["newsletters", "pages"],
-    },
+    // livePreview: {
+    //   url:
+    //     process.env.NODE_ENV === "production"
+    //       ? process.env.PAYLOAD_PUBLIC_SERVER_URL +
+    //         ":" +
+    //         process.env.LIVE_PREVIEW_PORT
+    //       : "http://localhost" + process.env.LIVE_PREVIEW_PORT,
+    //   collections: ["newsletters", "pages"],
+    // },
     components: {
       actions: [PublishButton],
     },
@@ -66,12 +66,8 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
-   db: mongooseAdapter({
-     url: process.env.DATABASE_URI,
-       connectOptions: {
-         user: process.env.DATABASE_USER,
-         pass: process.env.DATABASE_PASSWORD,
-    },
+  db: mongooseAdapter({
+    url: process.env.DATABASE_URI,
   }),
   plugins: [
     seoPlugin({
