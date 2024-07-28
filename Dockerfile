@@ -6,8 +6,8 @@ WORKDIR /home/node/app
 COPY package*.json ./
 
 COPY . .
-RUN pnpm install
-RUN pnpm build
+RUN yarn install
+RUN yarn build
 
 FROM base as runtime
 
