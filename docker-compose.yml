@@ -13,7 +13,7 @@ services:
     depends_on:
       - mongo
     environment:
-      DATABASE_URI: mongodb://mongo:27017/payload
+      DATABASE_URI: mongodb://mongo:27017
       PORT: 3000
       NODE_ENV: development
       PAYLOAD_SECRET: TESTING
