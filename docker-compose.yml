@@ -1,18 +1,22 @@
-version: "3.8"
+version: "3"
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  payload:
+    image: node:18-alpine
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - PAYLOAD_CONFIG_PATH=dist/payload.config.js
-      - MONGODB_URI=mongodb://mongo:27017
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/
+    command: sh -c "yarn install && yarn dev"
     depends_on:
       - mongo
+    environment:
+      DATABASE_URI: mongodb://mongo:27017/payload
+      PORT: 3000
+      NODE_ENV: development
+      PAYLOAD_SECRET: TESTING
 
   mongo:
     image: mongo:latest
@@ -21,9 +25,10 @@ services:
     command:
       - --storageEngine=wiredTiger
     volumes:
-      - mongo_data:/data/db
+      - data:/data/db
     logging:
       driver: none
 
 volumes:
-  mongo_data:
+  data:
+  node_modules:
