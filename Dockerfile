@@ -16,7 +16,7 @@ ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
 
 WORKDIR /home/node/app
 COPY package*.json  ./
-COPY pnpm-lock.yaml ./
+COPY yarn.lock ./
 
 RUN yarn install
 COPY --from=builder /home/node/app/dist ./dist
