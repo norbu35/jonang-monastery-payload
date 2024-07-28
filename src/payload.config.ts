@@ -68,6 +68,10 @@ export default buildConfig({
   },
    db: mongooseAdapter({
      url: process.env.DATABASE_URI,
+       connectOptions: {
+         user: process.env.DATABASE_USER,
+         pass: process.env.DATABASE_PASSWORD,
+    },
   }),
   plugins: [
     seoPlugin({
