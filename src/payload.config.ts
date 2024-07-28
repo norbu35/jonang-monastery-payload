@@ -32,15 +32,15 @@ export default buildConfig({
     bundler:
       // process.env.NODE_ENV === "production" ? viteBundler() : webpackBundler(),
       webpackBundler(),
-    // livePreview: {
-    //   url:
-    //     process.env.NODE_ENV === "production"
-    //       ? process.env.PAYLOAD_PUBLIC_SERVER_URL +
-    //         ":" +
-    //         process.env.LIVE_PREVIEW_PORT
-    //       : "http://localhost" + process.env.LIVE_PREVIEW_PORT,
-    //   collections: ["newsletters", "pages"],
-    // },
+    livePreview: {
+      url:
+        process.env.NODE_ENV === "production"
+          ? process.env.PAYLOAD_PUBLIC_SERVER_URL +
+            ":" +
+            process.env.LIVE_PREVIEW_PORT
+          : "http://localhost" + process.env.LIVE_PREVIEW_PORT,
+      collections: ["newsletters", "pages"],
+    },
     components: {
       actions: [PublishButton],
     },
