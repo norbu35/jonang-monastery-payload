@@ -13,7 +13,7 @@ services:
     depends_on:
       - mongo
     environment:
-      DATABASE_URI: mongodb://mongo:27017
+      DATABASE_URI: mongodb://mongo:27017/payload
       PORT: 3000
       NODE_ENV: development
       PAYLOAD_SECRET: TESTING
@@ -22,8 +22,8 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
-    # command:
-    #   - --storageEngine=wiredTiger
+    command:
+      - --storageEngine=wiredTiger
     volumes:
       - data:/data/db
     logging:
