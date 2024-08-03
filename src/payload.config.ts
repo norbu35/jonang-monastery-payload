@@ -63,7 +63,7 @@ export default buildConfig({
     // process.env.NODE_ENV === "production"
     //   ? process.env.PAYLOAD_PUBLIC_SERVER_URL
     //   : "http://localhost:3000",
-    process.env.PAYLOAD_PUBLIC_SERVER_URL,
+    "http://" + process.env.PAYLOAD_PUBLIC_SERVER_URL,
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
@@ -89,7 +89,7 @@ export default buildConfig({
     // process.env.NODE_ENV === " production"
     //   ? [process.env.PAYLOAD_PUBLIC_SERVER_URL]
     //   : ["http://localhost:3000", "http://localhost:5173"],
-    process.env.PAYLOAD_PUBLIC_SERVER_URL,
+    [process.env.PAYLOAD_PUBLIC_SERVER_URL],
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL],
   graphQL: {
     disable: true,
